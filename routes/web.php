@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('users/{name?}/{address?}/{age?}', 'UserController@show');
 
 Route::get('type/{type}', 'UserController@display');
+
+Route::resource('photos', 'PhotoController');
