@@ -15,8 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users/{name?}/{address?}/{age?}', 'UserController@show');
+Route::get('home', 'CategoryController@index')->name('home');
 
+Route::get('users/{name?}/{address?}/{age?}', 'UserController@show');
 Route::get('type/{type}', 'UserController@display');
 
 Route::resource('photos', 'PhotoController');
+Route::resource('category', 'CategoryController');
+Route::resource('expense', 'ExpenseController');
+Route::resource('income', 'IncomeController');

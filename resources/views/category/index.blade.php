@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
-@section('title', 'Photo List')
+@section('title', 'Category List')
 
 @section('content')
     <div class="row mb-2">
         <div class="col text-right">
-            <a href="{{ route('photos.create') }}" class="btn btn-success">New File</a>
+            <a href="{{ route('category.create') }}" class="btn btn-success">New Category</a>
         </div>
     </div>
 
@@ -13,19 +13,17 @@
         <tr>
             <th></th>
             <th>Name</th>
-            <th>File</th>
             <th>Action</th>
         </tr>
-        @foreach($model as $photo)
+        @foreach($model as $category)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $photo->name }}</td>
-                <td><img src="{{ asset('uploads/' . $photo->image) }}" class="img-fluid" width="100px"></td>
+                <td>{{ $category->name }}</td>
                 <td>
-                    <form action="{{ route('photos.destroy', $photo->id) }}" method="POST">
+                    <form action="{{ route('category.destroy', $category->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <a href="{{ route('photos.edit', $photo->id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning">Edit</a>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
