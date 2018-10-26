@@ -15,7 +15,8 @@ include in resources/views/layouts/admin.blade.php
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 <script>
     $('.datepicker').datepicker({
-        'format': 'dd-mm-yyyy'
+        format: 'dd-mm-yyyy',
+        autoclose: true
     });
 </script>
 </body>
