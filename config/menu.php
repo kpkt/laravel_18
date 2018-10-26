@@ -1,7 +1,7 @@
 <?php
 
 return [
-    ['label' => 'Dashboard', 'route' => 'home', 'icon' => '<i class="fa fa-fw fa-tachometer-alt"></i>'],
+    ['label' => 'Dashboard', 'route' => 'dashboard'],
     ['label' => 'Photo', 'route' => 'photos.index'],
     ['label' => 'Category', 'route' => 'category.index'],
     ['label' => 'Income', 'route' => 'income.index'],

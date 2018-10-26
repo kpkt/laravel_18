@@ -15,8 +15,8 @@
 //    return view('welcome');
 //});
 
-Route::get('/', 'HomeController@dashboard')->name('home');
-Route::get('dashboard', 'HomeController@dashboard')->name('home');
+Route::get('/', 'HomeController@dashboard');
+Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::get('data-incomes', 'HomeController@getIncomeData')->name('home.data-incomes');
 Route::get('data-expenses', 'HomeController@getExpenseData')->name('home.data-expenses');
 
