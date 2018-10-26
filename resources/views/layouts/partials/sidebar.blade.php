@@ -3,7 +3,12 @@
         @foreach(config('menu') as $menu)
             <li>
                 <a href="{{ route($menu['route']) }}">
-                    <i class="fa fa-fw fa-tachometer-alt"></i> {{ $menu['label'] }}
+                    @if(isset($menu['icon']))
+                        {!! $menu['icon'] !!}
+                    @else
+                        <i class="fa fa-flag"></i>
+                    @endif
+                    {{ $menu['label'] }}
                 </a>
             </li>
         @endforeach

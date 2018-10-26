@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Income;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class IncomeController extends Controller
@@ -42,7 +41,7 @@ class IncomeController extends Controller
         $model->category_id = $request->input('category_id');
         $model->amount = $request->input('amount');
 
-        $date = Carbon::createFromFormat('d-m-Y', $request->input('date'));
+        $date = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('date'));
         $model->date = $date;
 
         $model->save();
@@ -87,7 +86,7 @@ class IncomeController extends Controller
         $model->category_id = $request->input('category_id');
         $model->amount = $request->input('amount');
 
-        $date = Carbon::createFromFormat('d-m-Y', $request->input('date'));
+        $date = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('date'));
         $model->date = $date;
 
         $model->save();

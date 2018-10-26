@@ -42,13 +42,13 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Date</label>
                     <div class="col-sm-10">
-                        <input class="form-control" placeholder="Date: DD-MM-YYYY" name="date" type="text" value="{{ $model->date }}">
+                        <input class="form-control" placeholder="Date: DD-MM-YYYY" name="date" type="text" value="{{ $model->date->format('d-m-Y') }}">
                     </div>
                 </div>
 
             </div>
             <div class="card-footer bg-white">
-                <a href="{{ route('category.index') }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ route('income.index') }}" class="btn btn-secondary">Kembali</a>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>

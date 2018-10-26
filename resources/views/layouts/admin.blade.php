@@ -44,6 +44,8 @@
 <script src="{{ asset('bootadmin/js/moment.min.js') }}"></script>
 <script src="{{ asset('bootadmin/js/fullcalendar.min.js') }}"></script>
 <script src="{{ asset('bootadmin/js/bootadmin.min.js') }}"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+@yield('bottom-script')
 
 </body>
 </html>

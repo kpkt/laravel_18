@@ -40,11 +40,13 @@ class ExpenseController extends Controller
         $model->name = $request->input('name');
         $model->category_id = $request->input('category_id');
         $model->amount = $request->input('amount');
-        $model->date = $request->input('date');
+
+        $date = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('date'));
+        $model->date = $date;
 
         $model->save();
 
-        return redirect()->route('income.index');
+        return redirect()->route('expense.index');
     }
 
     /**
@@ -83,11 +85,13 @@ class ExpenseController extends Controller
         $model->name = $request->input('name');
         $model->category_id = $request->input('category_id');
         $model->amount = $request->input('amount');
-        $model->date = $request->input('date');
+
+        $date = \Carbon\Carbon::createFromFormat('d-m-Y', $request->input('date'));
+        $model->date = $date;
 
         $model->save();
 
-        return redirect()->route('income.index');
+        return redirect()->route('expense.index');
     }
 
     /**

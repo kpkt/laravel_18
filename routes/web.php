@@ -11,11 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('home', 'CategoryController@index')->name('home');
+Route::get('/', 'HomeController@dashboard')->name('home');
+Route::get('dashboard', 'HomeController@dashboard')->name('home');
+Route::get('data-incomes', 'HomeController@getIncomeData')->name('home.data-incomes');
+Route::get('data-expenses', 'HomeController@getExpenseData')->name('home.data-expenses');
 
 Route::get('users/{name?}/{address?}/{age?}', 'UserController@show');
 Route::get('type/{type}', 'UserController@display');
