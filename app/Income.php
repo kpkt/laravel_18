@@ -25,5 +25,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Income extends Model
 {
+    // Define field from DB table as a DATE/DATETIME value data
     protected $dates = ['date'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

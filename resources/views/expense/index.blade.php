@@ -13,14 +13,18 @@
         <tr>
             <th></th>
             <th>Name</th>
+            <th>Category</th>
             <th>Amount</th>
             <th>Date</th>
             <th>Action</th>
         </tr>
         @foreach($model as $expense)
             <tr>
-                <td>{{ $loop->iteration }}</td>
+                <!-- perPage() * currentPage-1 -->
+{{--                <td>{{ $loop->iteration }}</td>--}}
+                <td>{{ ($model->perPage() * ($model->currentPage()-1)) + $loop->iteration }}</td>
                 <td>{{ $expense->name }}</td>
+                <td>{{ $expense->category->name }}</td>
                 <td>{{ $expense->amount }}</td>
                 <td>{{ $expense->date->format('d-m-Y') }}</td>
                 <td>
@@ -34,4 +38,6 @@
             </tr>
         @endforeach
     </table>
+
+    {{ $model->links() }}
 @endsection

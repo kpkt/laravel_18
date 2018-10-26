@@ -14,7 +14,12 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $model = Expense::all();
+        // All Result
+//         $model = Expense::all();
+
+        // Pagination
+        $model = Expense::paginate(5);
+
         return view('expense.index', compact('model'));
     }
 
@@ -36,6 +41,13 @@ class ExpenseController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'category_id' => 'required|integer',
+            'name' => 'required',
+            'amount' => 'required|numeric',
+            'date' => 'required|date_format:"d-m-Y"'
+        ]);
+
         $model = new Expense();
         $model->name = $request->input('name');
         $model->category_id = $request->input('category_id');
@@ -81,6 +93,13 @@ class ExpenseController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'category_id' => 'required|integer',
+            'name' => 'required',
+            'amount' => 'required|numeric',
+            'date' => 'required|date_format:"d-m-Y"'
+        ]);
+
         $model = Expense::find($id);
         $model->name = $request->input('name');
         $model->category_id = $request->input('category_id');

@@ -26,4 +26,9 @@ use Illuminate\Database\Eloquent\Model;
 class Expense extends Model
 {
     protected $dates = ['date'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

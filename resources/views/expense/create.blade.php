@@ -16,32 +16,45 @@
                         <select name="category_id" class="form-control">
                             <option>-- Select Category --</option>
                             @foreach(\App\Category::all() as $category)
-                                <option value="{{ $category->id }}">
+                                <option value="{{ $category->id }}"
+                                @if($category->id == old('category_id')) selected @endif>
                                     {{ $category->name }}
                                 </option>
                             @endforeach
                         </select>
+                        @if($errors->has('category_id'))
+                            <div class="text-danger">{{ $errors->first('category_id') }}</div>
+                        @endif
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                        <input class="form-control" placeholder="Name" name="name" type="text">
+                        <input class="form-control" placeholder="Name" name="name" type="text" value="{{ old('name') }}">
+                        @if($errors->has('name'))
+                            <div class="text-danger">{{ $errors->first('name') }}</div>
+                        @endif
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Amount</label>
                     <div class="col-sm-10">
-                        <input class="form-control" placeholder="Amount" name="amount" type="text">
+                        <input class="form-control" placeholder="Amount" name="amount" type="text" value="{{ old('amount') }}">
+                        @if($errors->has('amount'))
+                            <div class="text-danger">{{ $errors->first('amount') }}</div>
+                        @endif
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Date</label>
                     <div class="col-sm-10">
-                        <input class="form-control" placeholder="Date: DD-MM-YYYY" name="date" type="text">
+                        <input class="form-control datepicker" placeholder="Date: DD-MM-YYYY" name="date" type="text" value="{{ old('date') }}">
+                        @if($errors->has('date'))
+                            <div class="text-danger">{{ $errors->first('date') }}</div>
+                        @endif
                     </div>
                 </div>
 

@@ -21,6 +21,7 @@
                                 </option>
                             @endforeach
                         </select>
+                        <div class="text-danger">{{ $errors->first('category_id') }}</div>
                     </div>
                 </div>
 
@@ -28,6 +29,7 @@
                     <label class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
                         <input class="form-control" placeholder="Name" name="name" type="text">
+                        <div class="text-danger">{{ $errors->first('name') }}</div>
                     </div>
                 </div>
 
@@ -35,13 +37,15 @@
                     <label class="col-sm-2 col-form-label">Amount</label>
                     <div class="col-sm-10">
                         <input class="form-control" placeholder="Amount" name="amount" type="text">
+                        <div class="text-danger">{{ $errors->first('amount') }}</div>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Date</label>
                     <div class="col-sm-10">
-                        <input class="form-control" placeholder="Date: DD-MM-YYYY" name="date" type="text">
+                        <input class="form-control datepicker" placeholder="Date: DD-MM-YYYY" name="date" type="text">
+                        <div class="text-danger">{{ $errors->first('date') }}</div>
                     </div>
                 </div>
 
@@ -51,4 +55,8 @@
             </div>
         </div>
     </form>
+@endsection
+
+@section('bottom-script')
+    <script></script>
 @endsection

@@ -13,6 +13,7 @@
         <tr>
             <th></th>
             <th>Name</th>
+            <th>Category</th>
             <th>Amount</th>
             <th>Date</th>
             <th>Action</th>
@@ -21,6 +22,7 @@
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $income->name }}</td>
+                <td>{{ $income->category->name }}</td>
                 <td>{{ $income->amount }}</td>
                 <td>{{ $income->date->format('d-m-Y') }}</td>
                 <td>

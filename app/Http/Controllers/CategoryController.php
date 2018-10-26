@@ -36,6 +36,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+        ]);
+
         $model = new Category();
         $model->name = $request->input('name');
         $model->save();
@@ -75,6 +79,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+        ]);
+
         $model = Category::find($id);
         $model->name = $request->input('name');
         $model->save();

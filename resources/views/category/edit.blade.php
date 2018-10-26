@@ -14,12 +14,23 @@
                     <label class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
                         <input class="form-control" placeholder="Name" name="name" type="text" value="{{ $model->name }}">
+                        <div class="text-danger">{{ $errors->first('name') }}</div>
                     </div>
                 </div>
             </div>
             <div class="card-footer bg-white">
                 <a href="{{ route('category.index') }}" class="btn btn-secondary">Kembali</a>
                 <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <ol>
+                    @foreach($model->hoi as $income)
+                        <li>{{ $income->name }}</li>
+                    @endforeach
+                    </ol>
+                </div>
             </div>
         </div>
     </form>

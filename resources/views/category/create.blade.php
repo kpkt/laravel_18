@@ -13,6 +13,7 @@
                     <label class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
                         <input class="form-control" placeholder="Name" name="name" type="text">
+                        <div class="text-danger">{{ $errors->first('name') }}</div>
                     </div>
                 </div>
             </div>

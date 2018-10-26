@@ -17,10 +17,12 @@
                         <select name="category_id" class="form-control">
                             <option>-- Select Category --</option>
                             @foreach(\App\Category::all() as $category)
-                                <option value="{{ $category->id }}" @if($category->id == $model->category_id) selected @endif >
+                                <option value="{{ $category->id }}"
+                                        @if($category->id == $model->category_id) selected @endif >
                                     {{ $category->name }}
                                 </option>
                             @endforeach
+                            <div class="text-danger">{{ $errors->first('category_id') }}</div>
                         </select>
                     </div>
                 </div>
@@ -29,6 +31,7 @@
                     <label class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
                         <input class="form-control" placeholder="Name" name="name" type="text" value="{{ $model->name }}">
+                        <div class="text-danger">{{ $errors->first('name') }}</div>
                     </div>
                 </div>
 
@@ -36,13 +39,16 @@
                     <label class="col-sm-2 col-form-label">Amount</label>
                     <div class="col-sm-10">
                         <input class="form-control" placeholder="Amount" name="amount" type="text" value="{{ $model->amount }}">
+                        <div class="text-danger">{{ $errors->first('amount') }}</div>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Date</label>
                     <div class="col-sm-10">
-                        <input class="form-control" placeholder="Date: DD-MM-YYYY" name="date" type="text" value="{{ $model->date->format('d-m-Y') }}">
+                        <input class="form-control datepicker" placeholder="Date: DD-MM-YYYY" name="date" type="text"
+                               value="{{ $model->date->format('d-m-Y') }}">
+                        <div class="text-danger">{{ $errors->first('date') }}</div>
                     </div>
                 </div>
 

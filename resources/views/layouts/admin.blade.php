@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('bootadmin/css/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bootadmin/css/fullcalendar.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bootadmin/css/bootadmin.min.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
 </head>
 <body class="bg-light">
 
@@ -44,7 +45,14 @@
 <script src="{{ asset('bootadmin/js/moment.min.js') }}"></script>
 <script src="{{ asset('bootadmin/js/fullcalendar.min.js') }}"></script>
 <script src="{{ asset('bootadmin/js/bootadmin.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+    $('.datepicker').datepicker({
+        format: 'dd-mm-yyyy',
+        autoclose: true
+    });
+</script>
 @yield('bottom-script')
 
 </body>

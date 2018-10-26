@@ -36,6 +36,13 @@ class IncomeController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'category_id' => 'required|integer',
+            'name' => 'required',
+            'amount' => 'required|numeric',
+            'date' => 'required|date_format:"d-m-Y"'
+        ]);
+
         $model = new Income();
         $model->name = $request->input('name');
         $model->category_id = $request->input('category_id');
@@ -81,6 +88,13 @@ class IncomeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'category_id' => 'required|integer',
+            'name' => 'required',
+            'amount' => 'required|numeric',
+            'date' => 'required|date_format:"d-m-Y"'
+        ]);
+
         $model = Income::find($id);
         $model->name = $request->input('name');
         $model->category_id = $request->input('category_id');
